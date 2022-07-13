@@ -29,7 +29,7 @@ app.get('/', (req, res) => {
         },
 ]
 
-    res.render('index', { articles: articles })
+    res.render('articles/index', { articles: articles })
 } )
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
