@@ -1,16 +1,15 @@
 <div class="form-group w-50 mb-3">
     <label for="title">Title</label>
-    <input style="height: 60px;" required type="text" name="title" id="title" class="form-control">
+    <input value="<%=article.title%>" style="height: 60px;" required type="text" name="title" id="title" class="form-control">
     
 </div>
 <div class="form-group w-50 mb-3">
     <label for="description">Description</label>
-    <textarea style="height: 100px;" name="description" id="description" required class="form-control"></textarea>    
+    <textarea  style="height: 100px;" name="description" id="description" class="form-control"><%= article.description %></textarea>    
 </div>
 <div class="form-group w-50 mb-3">
     <label for="markdown">Markdown</label>
-    <input style="height: 60px;" required type="text" name="markdown" id="markdown" class="form-control">
-    
+    <textarea required style="height: 100px;" name="markdown" id="markdown" class="form-control"><%= article.markdown %></textarea>        
 </div>
 <br>
 <a href="/" class="btn btn-secondary">Cancel</a>
