@@ -1,6 +1,8 @@
 const express = require('express')
 const articleRouter = require('./routes/articles.routes')
 const mongoose = require('mongoose')
+const Article = require('./models/article.models')
+const methodOverride = require('method-override')
 
 
 mongoose.connect('mongodb+srv://JewelSama:Flabagasted@cluster0.8peafx4.mongodb.net/?retryWrites=true&w=majority')
@@ -12,25 +14,13 @@ const app = express()
 app.set('view engine', 'ejs')
 
 app.use(express.urlencoded({extended: false}))
+app.use(methodOverride('_method'))
 
-app.get('/', (req, res) => {
-    const articles = [
-        {
-            title: 'Test Article',
-            createdAt: new Date(),
-            description: 'Test description'
-        },
-        {
-            title: 'Test Article2',
-            createdAt: new Date(),
-            description: 'Test description 2'
-        },
-        {
-            title: 'Test Article 3',
-            createdAt: new Date(),
-            description: 'Test description 3'
-        },
-    ]
+
+app.get('/', async (req, res) => {
+    const articles = await Article.find().sort({
+        createdAt: 'desc'
+    })
     
     res.render('articles/index', { articles: articles })
 } )
