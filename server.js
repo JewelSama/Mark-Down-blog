@@ -11,7 +11,25 @@ app.set('view engine', 'ejs')
 app.use('/articles', articleRouter)
 
 app.get('/', (req, res) => {
-    res.render('index', { text: 'Hello' })
+    const articles = [
+        {
+            title: 'Test Article',
+            createdAt: new Date(),
+            description: 'Test description'
+        },
+        {
+            title: 'Test Article2',
+            createdAt: new Date(),
+            description: 'Test description 2'
+        },
+        {
+            title: 'Test Article 3',
+            createdAt: new Date(),
+            description: 'Test description 3'
+        },
+]
+
+    res.render('index', { articles: articles })
 } )
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))

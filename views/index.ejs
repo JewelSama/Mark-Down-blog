@@ -4,8 +4,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/journal/bootstrap.min.css">
 </head>
 <body>
-    <h1><%= text %></h1>
+    <div class="container mt-5">
+        <h1 class="mb-4">Blog Articles</h1>
+        <a href="/articles/new" class="btn btn-success">New Article</a>
+        
+        <% articles.forEach(articles => { %>
+        
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4 class="card-tit"><%= articles.title %></h4>
+                    <div class="card-subtitle text-muted mb-2">
+                        <%= articles.createdAt.toLocaleDateString() %>
+                    </div>
+                </div>
+            </div>
+        <%})%>
+
+    </div>
 </body>
 </html>
