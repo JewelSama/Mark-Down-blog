@@ -1,6 +1,9 @@
 const express = require('express')
 const articleRouter = require('./routes/articles.routes')
+const mongoose = require('mongoose')
 
+
+mongoose.connect('mongodb://localhost/blog')
 
 
 const PORT = process.env.PORT || 5000
